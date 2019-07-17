@@ -16,7 +16,8 @@ printf  "\n\n\n=========== NGINX INSTALLED =============\n" &&
 nginx -v &&
 printf  "\n=================================\n" &&
 sudo ufw allow 'Nginx HTTP' && 
-sudo add-apt-repository ppa:certbot/certbot && 
+sudo add-apt-repository ppa:certbot/certbot -y && 
+sudo apt-get update &&
 sudo apt-get install -y python-certbot-nginx && 
 printf  "\n\n\n=========== CARTBOT INSTALLED =============\n" &&
 certbot -h &&
@@ -42,4 +43,5 @@ printf  "\n=================================\n" &&
 sudo npm i -g pm2 &&
 sudo sudo ufw enable && 
 sudo sudo ufw default allow &&
+sudo chown -R $(whoami) ~/.npm &&
 printf  "\n\n\n=========== INSTALLATION COMPLETED =============\n"
