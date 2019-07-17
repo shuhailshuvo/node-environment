@@ -1,3 +1,4 @@
+sudo apt-get update && 
 sudo apt-get install -y default-jre && 
 printf  "\n\n\n=========== JAVA INSTALLED =============\n" &&
 java -version &&
