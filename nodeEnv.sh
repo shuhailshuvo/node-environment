@@ -26,6 +26,8 @@ sudo wget --no-check-certificate -qO - http://pkg.jenkins-ci.org/debian/jenkins-
 echo  deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
 sudo apt-get update && 
 sudo apt-get install -y jenkins &&  
+sudo usermod -aG docker jenkins && 
+sudo systemctl restart jenkins &&
 printf  "\n\n\n=========== JENKINS INSTALLED =============\n" &&
 sudo systemctl status jenkins &&
 printf  "\n=================================\n" &&
@@ -40,7 +42,6 @@ sudo apt-get install -y git &&
 printf  "\n\n\n=========== GIT INSTALLED =============\n" &&
 docker --version &&
 printf  "\n=================================\n" &&
-sudo npm i -g pm2 &&
 sudo sudo ufw enable && 
 sudo sudo ufw default allow &&
 sudo chown -R $(whoami) ~/.npm &&
@@ -49,4 +50,5 @@ sudo echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb
 sudo apt-get update &&
 sudo apt-get install -y mongodb-org && 
 sudo service mongod start &&
+sudo npm i -g pm2 &&
 printf  "\n\n\n=========== INSTALLATION COMPLETED =============\n"
