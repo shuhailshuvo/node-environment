@@ -26,8 +26,6 @@ sudo wget --no-check-certificate -qO - http://pkg.jenkins-ci.org/debian/jenkins-
 echo  deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
 sudo apt-get update && 
 sudo apt-get install -y jenkins &&  
-sudo usermod -aG docker jenkins && 
-sudo systemctl restart jenkins &&
 printf  "\n\n\n=========== JENKINS INSTALLED =============\n" &&
 sudo systemctl status jenkins &&
 printf  "\n=================================\n" &&
@@ -37,6 +35,8 @@ sudo apt-get update &&
 sudo apt-get install -y docker-ce &&
 printf  "\n\n\n=========== DOCKER INSTALLED =============\n" &&
 docker --version &&
+sudo usermod -aG docker jenkins && 
+sudo systemctl restart jenkins &&
 printf  "\n=================================\n" &&
 sudo apt-get install -y git && 
 printf  "\n\n\n=========== GIT INSTALLED =============\n" &&
